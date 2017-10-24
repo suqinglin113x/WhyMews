@@ -26,10 +26,10 @@ class Admin extends Controller {
             //用页面传的尺寸剪裁图片
             //调用剪裁方法处理图片并返回
             $image = \think\Image::open('./image.png');
-            //将图片裁剪为300x300,从100,30处开始剪裁并保存为crop.png
-            $image->crop(150, 150,$data['w'],$data['h'])->save('./crop.png');
+            //将图片裁剪为150x150,从w,h处开始剪裁并保存为crop.png
+            $crop = $image->crop(150, 150, $data['w'], $data['h']);
             $pub = new Pub();
-            $data['avator'] = $pub->cropAvator();
+            $data['avator'] = $pub->cropAvator($crop.'png');
 
             //上传剪裁好的图片并返回存储路径，保存至数据库
             $uploads = new Pub();

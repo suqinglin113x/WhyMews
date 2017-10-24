@@ -14,7 +14,7 @@ class Admin extends Controller {
      * 后台添加用户
      */
     public function add(){
-//            halt($data);//相当于dump($data);die();//dump(input('post.'));相当于dump()
+      // halt($data);//相当于dump($data);die();//dump(input('post.'));相当于dump()
         if (request()->isPost()){
             $data = input('post.');
 
